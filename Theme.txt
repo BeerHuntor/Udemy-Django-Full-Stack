@@ -1,1 +1,12 @@
 darkpro
+
+Extentions: 
+CSS Peak
+Javascript ES6 Code Snippets
+Auto close Tag
+ESLint
+prettier - code formatter
+path intellisense
+gitlens
+project manager
+better commentsES
