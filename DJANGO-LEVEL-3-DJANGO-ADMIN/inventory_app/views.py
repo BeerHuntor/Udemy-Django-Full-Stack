@@ -18,7 +18,7 @@ def delete(request):
             return redirect(reverse('inventory_app:list_cars'))
             
         except:
-            print('PK not found')
+            print('Car not found')
             return redirect(reverse('inventory_app:list_cars'))
     else:   
         return render(request, 'inventory_app/delete.html')
