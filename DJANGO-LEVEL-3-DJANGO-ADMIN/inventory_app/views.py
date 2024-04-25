@@ -10,7 +10,18 @@ def list(request):
     return render(request, 'inventory_app/list.html', context = context)
 
 def delete(request):
-    return render(request, 'inventory_app/delete.html')
+    if request.POST:
+        pk = request.POST['pk']
+        try:
+            models.Car.objects.get(pk=pk).delete()
+            print('car deleted!')
+            return redirect(reverse('inventory_app:list_cars'))
+            
+        except:
+            print('PK not found')
+            return redirect(reverse('inventory_app:list_cars'))
+    else:   
+        return render(request, 'inventory_app/delete.html')
 
 def add(request):
     if request.POST:
