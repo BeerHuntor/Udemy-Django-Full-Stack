@@ -7,6 +7,21 @@
 </head>
 <body>
     {% extends "base.html" %}
-    <h1>DELETING</h1>
+    {% block content %}
+        <div class='conatiner'>
+            <h1>DELETING</h1>
+            <h3>Enter pk to delete car!</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class='form-group'>
+                    <label for="">PK Number:</label>
+                    <input class='form-control' type="text" id='pk' name='pk'>
+                </div>
+                <div class='form-group'>
+                    <input class='btn btn-primary 'type="button" value="Submit">
+                </div>
+            </form>
+        </div>
+    {% endblock content %}
 </body>
 </html>
