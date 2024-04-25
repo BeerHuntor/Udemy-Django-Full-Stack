@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from . import models
 
 template_dir = 'inventory_app/'
@@ -16,4 +17,6 @@ def add(request):
         brand = request.POST['brand']
         year = int(request.POST['year'])
         models.Car.objects.create(brand=brand, year=year)
-    return render(request, 'inventory_app/add.html')
+        return redirect(reverse('inventory_app:list_cars'))
+    else:
+        return render(request, 'inventory_app/add.html')

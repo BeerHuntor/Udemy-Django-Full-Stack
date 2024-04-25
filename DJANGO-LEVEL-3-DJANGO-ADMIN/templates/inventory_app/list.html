@@ -6,17 +6,19 @@
     <title>CAR SALES ~ FOR SALE</title>
 </head>
 <body>
-    
     {% extends "base.html" %}
     {% block content %}
-        <div class="conatiner">
-            <h1>CARS FOR SALE</h1>
-            <ul>
-                {% for car in cars %}
-                    <li>{{car}}</li>
-                {% endfor %}
-            </ul>
-        </div>
+        <h1>Cars For Sale</h1>
+
+        <ul>
+            {% for car in all_cars %}
+                <li>{{car}}</li>
+            {% endfor %}
+        </ul>
+    
     {% endblock content %}
+
+
 </body>
+
 </html>
