@@ -7,10 +7,27 @@
 <body>
     {% block content %}
         <h1>Car Review.</h1>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{review_form}}
-            <input type="submit" value="Submit">
-        </form>
+        <div class='container'>
+            <form action="" method="post">
+                <!--Alternative method to access the forms fields-->
+            
+                {% comment %}
+                    {{review_form.first_name.label_tag}} {{form.first_name}} This will only grab the label and the input area for 'first_name' input
+                    {{review_form}} This grabs the form in its entirety from the name you gave it in forms.py
+                    {{review_form.as_p}} This wraps <p> tags around each field. 
+                {% endcomment %}
+            
+                {% csrf_token %}
+            
+                {% for field in review_form  %}
+                    <div class='mb-3'>
+                        {{field.label_tag}}
+                    </div>
+                    {{field}}
+                {% endfor %}
+            
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     {% endblock content %}
 </body>
