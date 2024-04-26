@@ -10,6 +10,7 @@ def show_review_view(request):
 
         if review_form.is_valid():
             print(review_form.cleaned_data)
+            review_form.save(ReviewForm())
             return redirect(reverse('thank_you'))
     else:
         review_form = ReviewForm()
