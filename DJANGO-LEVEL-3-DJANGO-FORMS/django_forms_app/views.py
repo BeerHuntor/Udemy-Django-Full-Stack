@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-
-# Create your views here.
-def show_rental_review(request):
-    return render(request, 'app_templates/rental-review.html')
-
-def show_thank_you(request):
-    return render(request, 'app_templates/thank-you.html')
-=======
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import ReviewForm
@@ -28,4 +18,4 @@ def show_review_view(request):
 
 def show_thank_you_view(request):
     return render (request, "forms_app/thank-you.html")
->>>>>>> refs/remotes/origin/main
+

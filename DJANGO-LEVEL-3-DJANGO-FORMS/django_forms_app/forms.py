@@ -1,13 +1,4 @@
 from django import forms
-<<<<<<< HEAD
-
-class ReviewForm(forms.Form):
-
-    first_name = forms.CharField(30)
-    last_name = forms.CharField(30)
-
-    review_detail = forms.Textarea
-=======
 from .models import Review
 from django.forms import ModelForm, NumberInput
 
@@ -26,5 +17,4 @@ class ReviewForm(ModelForm):
             'star_rating' : NumberInput(attrs={'min':0, 'max':5}),
         }
         
-        
->>>>>>> refs/remotes/origin/main
+    
