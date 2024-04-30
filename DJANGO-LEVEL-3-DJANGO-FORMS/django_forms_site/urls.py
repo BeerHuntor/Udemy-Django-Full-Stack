@@ -1,5 +1,5 @@
 """
-URL configuration for database_site project.
+URL configuration for django_forms_site project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -19,9 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-    path('office/', include("office.urls")),
-=======
-    path('', include("app.urls")),
->>>>>>> 137244fc0c5807708e9a5f68ca3bd211b88e3291
+    path('reviews/', include('django_forms_app.urls')),
 ]
