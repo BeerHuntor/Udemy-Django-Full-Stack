@@ -6,8 +6,21 @@
     <title>{% block pagetitle %} {% endblock pagetitle %} | CBV</title>
 </head>
 <body>
+    <div>   
+        <ul>
+            <li>
+                <a href="{% url "thank_you" %}">Thank You</a>
+            </li>
+            <li>
+                <a href="{% url "contact" %}">Contact</a>
+            </li>
+            <li>
+                <a href="{% url "teacher_form" %}">Teacher From</a>
+            </li>
+        </ul>
+    </div>
     {% block content %}
-        
+
     
     {% endblock content %}
 </body>
