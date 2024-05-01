@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, FormView, CreateView
+from django.views.generic import TemplateView, FormView, CreateView, ListView
 
 from cbv_app.forms import ContactForm
 
@@ -31,4 +31,13 @@ class TeacherCreateView(CreateView):
 
 
     def get_template_names(self): # Changes where CreateView looks for the templates by default, by overriding the method call. 
-        return ['app/teacher_form.html', 'app/modelform.html']
+        return ['app/teacher_form.html', 'app/model_form.html']
+    
+
+class TeacherListView(ListView):
+
+    #model_list.html
+    model = Teacher
+
+    def get_template_names(self):
+        return ['app/teacher_list.html', 'app/teacher_list.html']
