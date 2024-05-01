@@ -3,18 +3,10 @@
 {% block pagetitle %}Sign Up{% endblock pagetitle %}
 
 {% block content %}
-
-    <h3>
-        Current Users List:
-    </h3>
-        <ol>
-            {% for user in users_view  %}
-                <li>User Info:</li>
-                <ul>
-                    <li>First Name: {{user.first_name}}</li>
-                    <li>Last Name: {{user.last_name}}</li>
-                    <li>Email: {{user.email}}</li>
-                </ul>
-            {% endfor %}
-        </ol>
+    <h2>Sign Up Below</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Sign Up">
+    </form>
 {% endblock content %}
