@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, FormView, CreateView, ListView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView
 
 from cbv_app.forms import ContactForm
 
@@ -41,3 +41,12 @@ class TeacherListView(ListView):
 
     def get_template_names(self):
         return ['app/teacher_list.html', 'app/teacher_list.html']
+
+class TeacherDetailedView(DetailView):
+    # VIEW RETURNS ONLY ONE ENTRY BASED ON PRIMARY KEY
+    # model_detail.hmtl <--- Looks for by default. 
+
+    model = Teacher
+
+    def get_template_names(self):
+        return ['app/teacher_detail.html']
