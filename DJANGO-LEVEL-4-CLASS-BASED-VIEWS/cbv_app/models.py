@@ -6,7 +6,6 @@ class Teacher(models.Model):
     last_name = models.CharField(max_length=25)
     subject = models.CharField(max_length=256)
 
-
     def __str__(self):
         return f'{self.first_name}, {self.last_name}. Teaches {self.subject}'
     

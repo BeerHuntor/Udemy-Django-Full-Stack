@@ -4,4 +4,3 @@ class ContactForm(forms.Form):
     last_name = forms.CharField(max_length=25, required=True)
     email = forms.EmailField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
-    
