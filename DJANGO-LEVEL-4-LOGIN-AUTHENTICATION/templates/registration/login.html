@@ -6,7 +6,7 @@
     {% if form.errors %}
         <p>Your username or password was incorrect. Try again.</p>
     {% endif %}
-    <!--NOT AUTHENTICATED OR DONT HAVE PERMISSION-->
+    <!--NOT AUTHENTICATED OR DONT HAVE PERMISSION RETURNS {{NEXT}}-->
     {% if next %}
         {% if user.is_authenticated %}
             <p>You don't have permission to view this page.</p>
