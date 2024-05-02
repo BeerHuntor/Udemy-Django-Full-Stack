@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %} Delete {{teacher.first_name}} {{teacher.last_name}}{% endblock pagetitle %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{teacher.first_name}} {{teacher.last_name}} from the database?</p>
+        {{form}}
+        <input type="submit" value="Confirm Deletion">
+    </form>
+{% endblock content %}

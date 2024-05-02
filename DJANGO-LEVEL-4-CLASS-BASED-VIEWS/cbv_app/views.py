@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from cbv_app.forms import ContactForm
 
@@ -60,3 +60,13 @@ class TeacherUpdateView(UpdateView):
 
     def get_template_names(self):
         return ['app/teacher_form.html']
+
+class TeacherDeleteView(DeleteView):
+
+    # DEFAULT TEMPLATE CONVENTION model_confirm_delete.html
+
+    model = Teacher
+    success_url = reverse_lazy('teacher_list')
+
+    def get_template_names(self):
+        return ['app/teacher_confirm_delete.html']
