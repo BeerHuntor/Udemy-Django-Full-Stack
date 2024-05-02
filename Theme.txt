@@ -1,4 +1,6 @@
 darkpro
+Blueloco Dark Theme
+Material Icon Theme as Icon Theme
 
 Extentions: 
 CSS Peak
