@@ -22,5 +22,6 @@ urlpatterns = [
     path('catalog/', include('catalog.urls')),
     path('', RedirectView.as_view(url='catalog/')), # redirects domain.com ---->  domain.com/catalogue automatically using RedirectView.
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     
 ]
