@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Login{% endblock pagetitle %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Your username or password was incorrect. Try again.</p>
+    {% endif %}
+    <!--NOT AUTHENTICATED OR DONT HAVE PERMISSION-->
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>You don't have permission to view this page.</p>
+        {% else %}
+            <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+    
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <p>
+            {{form.username.label_tag}}
+            {{form.username}}
+        </p>
+        <p>
+            {{form.password.label_tag}}
+            {{form.password}}
+        </p>
+        <p><input type="submit" value="Login"></p>
+        <input type="hidden" name="next" value="{{next}}">
+        
+    </form>
+{% endblock content %}
