@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Create Book{% endblock pagetitle %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <P><input type="submit" value="Create Book"></P>
+    </form>
+{% endblock content %}
+    

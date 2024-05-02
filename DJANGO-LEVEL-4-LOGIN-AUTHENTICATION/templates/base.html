@@ -6,6 +6,11 @@
     <title>{% block pagetitle %}{% endblock pagetitle %} | Libray </title>
 </head>
 <body>
+    <ul>
+        <li>
+            <a href="{% url "create_book" %}">Create Book</a>
+        </li>
+    </ul>
     {% block content %}
 
     {% endblock content %}

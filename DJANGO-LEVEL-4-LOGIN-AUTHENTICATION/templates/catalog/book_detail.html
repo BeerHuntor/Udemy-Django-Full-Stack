@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}{{book.book_title}}{% endblock pagetitle %}
+
+{% block content %}
+    {{book}}
+    {{book.author}}
+{% endblock content %}
