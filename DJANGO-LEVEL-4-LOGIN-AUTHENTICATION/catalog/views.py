@@ -28,7 +28,7 @@ def CatalogHomeView(request):
 
 class BookCreate(CreateView):
     model = Book
-    fields = "__all__"
+    fields = ['book_title', 'author', 'summary', 'isbn','genre', 'language']
     
     def get_template_names(self):
         return ['catalog/book_form.html']
@@ -37,5 +37,8 @@ class BookDetail(DetailView):
     model = Book
     fields = "__all__"
 
+    def get_object(self, queryset=None):
+        # Retrieve th e book based on the slug
+        return get_object_or_404(Book, slug=self.kwargs['slug'])
     def get_template_names(self):
         return ['catalog/book_detail.html']
