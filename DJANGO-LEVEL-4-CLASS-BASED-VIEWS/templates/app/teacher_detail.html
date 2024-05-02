@@ -5,4 +5,10 @@
 {% block content %}
     <h1>{{teacher.first_name}} {{teacher.last_name}} Detail View</h1>
     {{teacher}}
+
+    <div class="container">
+        <ul>
+            <li><a href="/teacher_update/{{teacher.id}}">Update Information</a></li>
+        </ul>
+    </div>
 {% endblock content %}

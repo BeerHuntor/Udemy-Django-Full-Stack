@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView
+from django.views.generic import TemplateView, FormView, CreateView, ListView, DetailView, UpdateView
 
 from cbv_app.forms import ContactForm
 
@@ -50,3 +50,13 @@ class TeacherDetailedView(DetailView):
 
     def get_template_names(self):
         return ['app/teacher_detail.html']
+    
+class TeacherUpdateView(UpdateView):
+    # SHARES model_form.html
+
+    model = Teacher
+    fields = ['first_name', 'last_name']
+    success_url = reverse_lazy('teacher_list')
+
+    def get_template_names(self):
+        return ['app/teacher_form.html']

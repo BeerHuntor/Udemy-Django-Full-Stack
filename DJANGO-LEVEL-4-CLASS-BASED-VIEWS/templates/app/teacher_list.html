@@ -5,6 +5,8 @@
 {% block content %}
     <h1>All Teachers:</h1>
     {% for teacher in teacher_list  %}
-        <li><a href="/teacher_detail/{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a></li>
+        <li>
+            <a href="/teacher_detail/{{teacher.id}}">{{teacher.first_name}} {{teacher.last_name}}</a>
+        </li>
     {% endfor %}
 {% endblock content %}

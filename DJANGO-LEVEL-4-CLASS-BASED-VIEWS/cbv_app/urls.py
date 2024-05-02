@@ -1,5 +1,5 @@
 from django.urls import path
-from cbv_app.views import HomeTemplateView, ThankYouTemplateView, ContactFormView, TeacherCreateView, TeacherListView, TeacherDetailedView
+from cbv_app.views import HomeTemplateView, ThankYouTemplateView, ContactFormView, TeacherCreateView, TeacherListView, TeacherDetailedView, TeacherUpdateView
 
 urlpatterns = [
     path('', HomeTemplateView.as_view(), name='index'),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('teacher/', TeacherCreateView.as_view(), name='teacher_form'),
     path('teacher_list/', TeacherListView.as_view(), name='teacher_list'),
     path('teacher_detail/<int:pk>', TeacherDetailedView.as_view(), name='teacher_detail'),
+    path('teacher_update/<int:pk>', TeacherUpdateView.as_view(), name='teacher_update')
     
 ]
