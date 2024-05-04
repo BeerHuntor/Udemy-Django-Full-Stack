@@ -6,10 +6,15 @@
     <h1>Catalog Home View</h1>
     <p>Total number of books {{num_instances}}</p>
     {% if user.is_authenticated %}
-    <p>Number of available books: {{num_instances_avail}}</p>
-    <p>You are logged in!</p>
-    <p>Welcome back {{user.get_username}}!</p>
-    {% else %}
+        <p>Number of available books: {{num_instances_avail}}</p>
+        <p>You are logged in!</p>
+        <p>Welcome back {{user.get_username}}!</p>
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button class="btn-simple" type="submit">Logout</button>
+        </form>
+        {% else %}
         <p>You need to be logged in to view the available books!</p>
+        <a href="{% url 'login' %}?next={{request.path}}">Login</a> <!-- {{request.path}} allows to be automatically redirected to the page where they clicked the link-->
     {% endif %}
 {% endblock content %}
