@@ -1,5 +1,5 @@
 darkpro
-Blueloco Dark Theme
+Blueloco Dark Theme / Default dark modern
 Material Icon Theme as Icon Theme
 
 Extentions: 
