@@ -13,3 +13,54 @@ gitlens
 project manager
 better commentsES
 Djaneiro
+
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "variable.other.django"
+                ],
+                "settings": {
+                    "foreground": "#d770ff",
+                }
+            },
+            {
+                "scope": "variable.other.django.attribute",
+                "settings": {
+                    "foreground": "#ddb9ff",
+                }
+            },
+            {
+                "scope": [
+                    "variable.other.django.block",
+
+                ],
+                "settings": {
+                    "foreground": "#71f33d"
+                }
+            },
+            {
+                "scope": "meta.scope.django.tag",
+                "settings": {
+                    "foreground": "#ff1ce1",
+                }
+            },
+            {
+                "scope": "keyword.control.django",
+                "settings": {
+                    "foreground": "#00e1ff",
+                    "fontStyle": "bold"
+                }
+            },
+        ]
+    },
+    
+    "editor.semanticTokenColorCustomizations": {
+        "[Bluloco Dark]": {
+          "rules": {
+            "module" : "#4eeeb1",
+            "method" : "#00c700"
+          }
+        }
+    },
+    "editor.fontWeight": "500"
