@@ -5,5 +5,11 @@
 {% block content %}
     <h1>Catalog Home View</h1>
     <p>Total number of books {{num_instances}}</p>
+    {% if user.is_authenticated %}
     <p>Number of available books: {{num_instances_avail}}</p>
+    <p>You are logged in!</p>
+    <p>Welcome back {{user.get_username}}!</p>
+    {% else %}
+        <p>You need to be logged in to view the available books!</p>
+    {% endif %}
 {% endblock content %}

@@ -18,7 +18,8 @@ Djaneiro
         "textMateRules": [
             {
                 "scope": [
-                    "variable.other.django"
+                    "variable.other.django",
+                    "variable.other.readwrite",
                 ],
                 "settings": {
                     "foreground": "#d770ff",
