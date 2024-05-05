@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, request
 from django.views.generic.edit import FormView
 from authapp.models import User, UserProfileInfo
 from authapp.forms import UserForm, UserProfileInfoForm
@@ -45,4 +45,9 @@ class RegisterFormView(FormView):
             profile.user = user # Linking the profile to the user. 
             profile.save()
 
-        return super().form_valid(form)
+            # We get the files in the request.FILES and then do something with it. In this case, we set their profile pic to the one uploaded. 
+            if 'profile_pic' in self.request.FILES:
+                profile.profile_pic = self.request.FILES['profile_pic']
+            return super().form_valid(form)
+        else:
+            print(self.user_form.errors, self.profile_form.errors)
