@@ -16,5 +16,6 @@
         {% else %}
         <p>You need to be logged in to view the available books!</p>
         <a href="{% url 'login' %}?next={{request.path}}">Login</a> <!-- {{request.path}} allows to be automatically redirected to the page where they clicked the link-->
+        <a href="{% url 'sign_up' %}?next={{request.path}}">Sign Up</a>
     {% endif %}
 {% endblock content %}
