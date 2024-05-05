@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, DetailView
 from catalog.models import Book, Author, BookInstance, Genre,Language
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def CatalogHomeView(request):
@@ -36,3 +37,7 @@ class BookDetail(DetailView):
         return get_object_or_404(Book, slug=self.kwargs['slug'])
     def get_template_names(self):
         return ['catalog/book_detail.html']
+
+@login_required # Decorater that requires user to be auth'd before they can even view the page for a function based view.  
+def my_view(request):
+    return render(request='catalog/my_view.html')
