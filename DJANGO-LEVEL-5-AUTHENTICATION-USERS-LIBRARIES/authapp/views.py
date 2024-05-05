@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy, request
+from django.urls import reverse_lazy
+from django.http import request
 from django.views.generic.edit import FormView
 from authapp.models import User, UserProfileInfo
 from authapp.forms import UserForm, UserProfileInfoForm
@@ -13,7 +14,7 @@ def show_login_view(request):
 
 def show_logout_view(request):
     logout(request)
-    return render (request)
+    return render (request, 'index')
 
 class RegisterFormView(FormView):
     form_class = UserForm
