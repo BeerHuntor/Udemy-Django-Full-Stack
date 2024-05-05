@@ -1,5 +1,6 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from catalog.models import Book, Author, BookInstance, Genre,Language
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -51,3 +52,14 @@ class SignUpView(CreateView):
     
     def get_template_names(self):
         return ['catalog/sign_up.html']
+    
+class CheckedOutBooksByUser(LoginRequiredMixin, ListView):
+    #List all BookInstances BUT i will filter based of currently logged in user session
+    model = BookInstance
+    paginate_by = 5 # how many Books per page. 
+
+    def get_template_names(self):
+        return ['catalog/profile.html']
+    
+    def get_queryset(self):
+        return BookInstance.objects.filter(borrowed_by=self.request.user).order_by('due_back')#querey to be executed
