@@ -6,10 +6,14 @@
     <p>Your current borrowed books!</p>
     <ul>
         {% for book in bookinstance_list %}
-            <li><a href="/catalog/book_detail/{{book.book.slug}}/">{{book.book.book_title}}</a>, Written by {{book.book.author}}. 
+            <li><a href="/catalog/book_detail/{{book.book.slug}}/">{{book.book.book_title}}</a>, Written by {{book.book.author}}. </li>
                 <ul>
                     <li>Due: {{book.due_back}}</li>
                 </ul>
+        {% empty %} <!--DEFAULT DJANGO TAG FOR LOOPS SPECIFICALLY WHEN A LOOP IN THIS INSTANCE A FOR LOOP IS EMPTY AND DOESN'T EXIST-->
+            <p>You do not have any borrowed books</p>
         {% endfor %}
+            
     </ul>
-{% endblock content %}
+
+{% endblock content %}  
