@@ -4,4 +4,17 @@
 
 {% block content %}
     <h1>Login Page</h1>
+    <div class="container">
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <p class="user">
+                <label for="username">UserName: </label>
+                <input type="text" name="username" id="" placeholder="username">
+            </p>
+            <p class="pass">
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="">
+            </p>
+        </form>
+    </div>
 {% endblock content %}  
