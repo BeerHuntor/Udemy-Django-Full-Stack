@@ -12,4 +12,4 @@ class UserProfileInfo(models.Model):
     user_profile_image = models.ImageField(upload_to='profile_pics')
 
     def __str__(self):
-        pass
+        return self.user.username
