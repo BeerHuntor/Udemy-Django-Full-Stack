@@ -4,6 +4,8 @@ from catalog.models import Book, Author, BookInstance, Genre,Language
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 def CatalogHomeView(request):
@@ -42,3 +44,10 @@ class BookDetail(DetailView):
 @login_required # Decorater that requires user to be auth'd before they can even view the page for a function based view.  
 def my_view(request):
     return render(request='catalog/my_view.html')
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    
+    def get_template_names(self):
+        return ['catalog/sign_up.html']
