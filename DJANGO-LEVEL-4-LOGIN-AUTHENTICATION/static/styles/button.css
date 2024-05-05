@@ -1,8 +1,10 @@
 
 .btn-simple {
-    background-color: none;
+    background-color: transparent;
     border: none;
     color: blue;
-    text-decoration: none;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
     display: inline-block;
 }
