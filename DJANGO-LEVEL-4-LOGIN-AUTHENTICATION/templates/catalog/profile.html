@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}{{user.get_username}}'s Profile{% endblock pagetitle %}
+
+{% block content %}
+    <p>Your current borrowed books!</p>
+    <ul>
+        {% for book in bookinstance_list %}
+            <li><a href="/catalog/book_detail/{{book.book.slug}}/">{{book.book.book_title}}</a>, Written by {{book.book.author}}. 
+                <ul>
+                    <li>Due: {{book.due_back}}</li>
+                </ul>
+        {% endfor %}
+    </ul>
+{% endblock content %}
