@@ -3,6 +3,7 @@ from django.views.generic import CreateView, DetailView
 from catalog.models import Book, Author, BookInstance, Genre,Language
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def CatalogHomeView(request):
@@ -21,7 +22,7 @@ def CatalogHomeView(request):
     return render(request, 'catalog/index.html', context=context)
 
 
-class BookCreate(CreateView):
+class BookCreate(LoginRequiredMixin, CreateView): #For class based views, you need to use Mixins and pass it into the view.
     model = Book
     fields = ['book_title', 'author', 'summary', 'isbn','genre', 'language']
     
