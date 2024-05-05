@@ -15,6 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -126,6 +127,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_DIRS = os.path.join(BASE_DIR, 'static/')
+
+# Media - This folder is used for users who upload to the website, such as profile picture etc, as apposed to static, where they are, our images for website creation. 
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
