@@ -1,6 +1,31 @@
 darkpro
 Blueloco Dark Theme
 Material Icon Theme as Icon Theme
+Add to settings.json by switching settings style to 'json' from 'ui'
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "meta.function-call.arguments.python",
+                    "meta.function-call.python",
+                    "source.python",
+                ],
+                "settings": {
+                    "foreground": "#5eccc3"
+                }
+            },
+            {
+                "scope" : [
+                    "keyword.control.import.python"
+                ],
+                "settings": {
+                    "foreground": "#3e47c5",
+                    "fontStyle": "italic bold"
+                }
+            },         
+
+        ]
+    },
 
 Extentions: 
 CSS Peak
