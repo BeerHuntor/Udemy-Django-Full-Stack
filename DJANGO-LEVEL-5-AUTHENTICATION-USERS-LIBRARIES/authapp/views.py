@@ -1,20 +1,40 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.http import request
+from django.urls import reverse_lazy, reverse
+from django.http import request, HttpResponseRedirect, HttpResponse
 from django.views.generic.edit import FormView
 from authapp.models import User, UserProfileInfo
 from authapp.forms import UserForm, UserProfileInfoForm
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def show_index_view(request):
     return render(request, 'authapp/index.html')
 
 def show_login_view(request):
-    return render(request, 'authapp/login.html')
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        password = request.POST.get("password")
 
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return HttpResponse("Account no longer active!")
+            
+        else:
+            print("Someone tried to login and failed.")
+            print("Username: {} and password {}".format(username, password))
+
+    else: 
+        return render(request, 'authapp/login.html')
+
+@login_required
 def show_logout_view(request):
     logout(request)
-    return render (request, 'index')
+    return HttpResponseRedirect(reverse('index'))
 
 class RegisterFormView(FormView):
     form_class = UserForm
