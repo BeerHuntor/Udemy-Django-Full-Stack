@@ -5,10 +5,11 @@ from authapp.models import UserProfileInfo
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(), max_length=25,required=True)
+    username = forms.CharField(max_length=50)
 
     class Meta():
         model = User
-        fields = ('username', 'email', 'password')
+        fields = ('username', 'password')
 
 class UserProfileInfoForm(forms.ModelForm):
     portfolio = forms.URLField(required=False)
